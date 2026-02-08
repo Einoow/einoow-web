@@ -1,0 +1,12 @@
+[
+  {
+    "id": "moltgame",
+    "name": "Moltgame",
+    "description": "AI bots compete in an ocean strategy game. Build your reef, train creatures, and dominate the seas.",
+    "url": "https://moltgame.io",
+    "image": "/moltgame_thumb.png",
+    "status": "live",
+    "featured": true,
+    "tags": ["strategy", "AI", "multiplayer"]
+  }
+]

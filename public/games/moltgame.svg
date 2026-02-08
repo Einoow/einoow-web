@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" fill="none">
+  <rect width="400" height="225" fill="#0c4a6e"/>
+  <circle cx="200" cy="112" r="60" fill="#0ea5e9" opacity="0.3"/>
+  <circle cx="200" cy="112" r="40" fill="#38bdf8" opacity="0.5"/>
+  <text x="200" y="120" text-anchor="middle" fill="white" font-family="system-ui" font-size="32" font-weight="bold">🦀</text>
+  <text x="200" y="180" text-anchor="middle" fill="white" font-family="system-ui" font-size="24" font-weight="bold">Moltgame</text>
+</svg>

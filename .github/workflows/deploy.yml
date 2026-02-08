@@ -1,0 +1,68 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build all packages
+        run: pnpm build
+
+      - name: Prepare deployment
+        run: |
+          # Create deployment directory
+          mkdir -p deploy
+
+          # Copy shell build
+          cp -r packages/shell/dist/* deploy/
+
+          # Copy game builds
+          mkdir -p deploy/games
+          for game in packages/games/*/; do
+            if [ -d "$game/dist" ]; then
+              gamename=$(basename "$game")
+              cp -r "$game/dist" "deploy/games/$gamename"
+            fi
+          done
+
+          # Update games manifest with production URLs
+          # This requires the CLOUDFLARE_PAGES_URL secret to be set
+          if [ -n "${{ secrets.CLOUDFLARE_PAGES_URL }}" ]; then
+            sed -i "s|http://localhost:[0-9]*/assets/remoteEntry.js|${{ secrets.CLOUDFLARE_PAGES_URL }}/games/clicker-game/assets/remoteEntry.js|g" deploy/games-manifest.json
+          fi
+
+      - name: Deploy to Cloudflare Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: game-portal
+          directory: deploy
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
