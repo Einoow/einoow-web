@@ -17,7 +17,7 @@ export function Layout({ children }: LayoutProps) {
             <img 
               src="/einoow_logo.png" 
               alt="Einoow" 
-              className="h-8 w-8 sm:h-9 sm:w-9"
+              className="h-10 w-10 sm:h-12 sm:w-12"
             />
             <span className="font-display font-bold text-xl text-white group-hover:text-primary-400 transition-colors">
               Einoow

@@ -1,3 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <text y=".9em" font-size="90">🎮</text>
+  <!-- Simplified Einoow "E" logo - outer shape only -->
+  <polygon 
+    fill="#ffffff" 
+    stroke="#1a1a2e" 
+    stroke-width="3"
+    points="
+      15,10
+      85,10
+      85,25
+      45,25
+      45,42
+      75,42
+      75,58
+      45,58
+      45,75
+      85,75
+      85,90
+      15,90
+      15,75
+      30,75
+      30,58
+      15,58
+      15,42
+      30,42
+      30,25
+      15,25
+    "
+  />
 </svg>
