@@ -10,7 +10,7 @@ interface SEOProps {
 }
 
 const BASE_URL = 'https://einoow.com';
-const DEFAULT_TITLE = 'Einoow - Play Fun & Innovative Web Games';
+const DEFAULT_TITLE = 'Einoow';
 const DEFAULT_DESCRIPTION = 'Discover and play creative web games. From AI-powered strategy to casual fun, Einoow brings innovative gaming experiences to your browser.';
 const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.png`;
 
