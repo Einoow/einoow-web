@@ -22,93 +22,125 @@ export function HomePage() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section - Overlay Style (Steam/Epic inspired) */}
       {featuredGame && (
-        <section className="relative py-8 sm:py-12 md:py-20 px-4 sm:px-6 overflow-hidden">
-          {/* Background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/20 via-dark-300 to-dark-300" />
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl" />
-          
-          <div className="relative max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center">
-              {/* Mobile: Image first, then text. Desktop: text first */}
-              <div className="animate-fade-in order-1 md:order-2">
-                <div className="relative">
-                  <div className="aspect-[16/10] sm:aspect-video rounded-xl overflow-hidden border border-white/10 shadow-2xl max-h-[200px] sm:max-h-none">
-                    {featuredGame.image ? (
-                      <img
-                        src={featuredGame.image}
-                        alt={featuredGame.name}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-dark-200 flex items-center justify-center">
-                        <span className="text-4xl sm:text-6xl">🎮</span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary-500/20 rounded-full blur-2xl hidden sm:block" />
-                </div>
+        <section className="relative">
+          {/* Hero Image - Full width, controlled height */}
+          <div className="relative h-[280px] sm:h-[360px] md:h-[420px] overflow-hidden">
+            {featuredGame.image ? (
+              <img
+                src={featuredGame.image}
+                alt={featuredGame.name}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <div className="w-full h-full bg-gradient-to-br from-primary-900 to-dark-300 flex items-center justify-center">
+                <span className="text-6xl">🎮</span>
               </div>
+            )}
+            
+            {/* Gradient overlays for readability */}
+            <div className="absolute inset-0 bg-gradient-to-t from-dark-300 via-dark-300/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-dark-300/80 via-transparent to-transparent" />
+          </div>
+          
+          {/* Content overlay - positioned at bottom */}
+          <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">
+            <div className="max-w-6xl mx-auto">
+              {/* Featured badge */}
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-primary-500/90 backdrop-blur-sm text-white rounded-md text-xs font-semibold uppercase tracking-wide mb-2 sm:mb-3">
+                <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                Featured
+              </span>
               
-              <div className="animate-fade-in-up order-2 md:order-1">
-                <span className="inline-block px-2 py-0.5 sm:px-3 sm:py-1 bg-primary-500/20 text-primary-400 rounded-full text-xs sm:text-sm font-medium mb-2 sm:mb-4">
-                  ✨ Featured
-                </span>
-                <h1 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-2 sm:mb-4">
-                  {featuredGame.name}
-                </h1>
-                <p className="text-gray-400 text-sm sm:text-lg mb-4 sm:mb-6 max-w-md line-clamp-2 sm:line-clamp-none">
-                  {featuredGame.description}
-                </p>
+              {/* Title */}
+              <h1 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-1.5 sm:mb-2 drop-shadow-lg">
+                {featuredGame.name}
+              </h1>
+              
+              {/* Description - short on mobile */}
+              <p className="text-gray-200 text-sm sm:text-base md:text-lg mb-3 sm:mb-4 max-w-xl line-clamp-2 drop-shadow">
+                {featuredGame.description}
+              </p>
+              
+              {/* Tags + CTA row */}
+              <div className="flex flex-wrap items-center gap-3">
+                {/* Play button - large and prominent */}
                 <button
                   onClick={() => handleGameClick(featuredGame)}
-                  className="px-4 py-2 sm:px-6 sm:py-3 bg-primary-500 hover:bg-primary-600 text-white text-sm sm:text-base font-medium rounded-lg flex items-center gap-2 transition-colors"
+                  className="px-5 py-2.5 sm:px-8 sm:py-3 bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white font-semibold rounded-lg flex items-center gap-2 transition-all shadow-lg shadow-primary-500/30 hover:shadow-xl hover:shadow-primary-500/40 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
                   </svg>
                   Play Now
                 </button>
+                
+                {/* Tags - inline, subtle */}
+                {featuredGame.tags && featuredGame.tags.length > 0 && (
+                  <div className="flex items-center gap-2">
+                    {featuredGame.tags.slice(0, 3).map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 bg-white/10 backdrop-blur-sm rounded text-xs text-gray-300 capitalize"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </section>
       )}
 
-      {/* All Games */}
-      <section className="py-12 px-4 sm:px-6">
+      {/* Games Section */}
+      <section className="py-6 sm:py-10 md:py-12 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-display text-2xl font-bold text-white mb-6">
-            {featuredGame ? 'More Games' : 'All Games'}
-          </h2>
+          {/* Section header */}
+          <div className="flex items-center justify-between mb-4 sm:mb-6">
+            <h2 className="font-display text-xl sm:text-2xl font-bold text-white">
+              {featuredGame ? 'More Games' : 'All Games'}
+            </h2>
+            {games.length > 3 && (
+              <span className="text-sm text-gray-500">
+                {games.length} games
+              </span>
+            )}
+          </div>
           
           {games.length === 0 ? (
-            <div className="text-center py-20">
-              <span className="text-6xl mb-4 block">🎮</span>
-              <h3 className="text-xl font-display font-bold text-white mb-2">
+            <div className="text-center py-16 sm:py-20">
+              <span className="text-5xl sm:text-6xl mb-4 block">🎮</span>
+              <h3 className="text-lg sm:text-xl font-display font-bold text-white mb-2">
                 No games yet
               </h3>
-              <p className="text-gray-400">
+              <p className="text-gray-400 text-sm sm:text-base">
                 Check back soon for new games!
               </p>
             </div>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {(featuredGame ? otherGames : games).map((game) => (
                 <GameCard key={game.id} game={game} onClick={handleGameClick} />
               ))}
               
               {/* Coming soon placeholder */}
-              <div className="bg-dark-200/50 rounded-xl border border-dashed border-white/10 flex flex-col items-center justify-center p-8 text-center min-h-[280px]">
-                <span className="text-4xl mb-3">🚀</span>
-                <h3 className="font-display font-bold text-white mb-1">More Coming Soon</h3>
-                <p className="text-gray-500 text-sm">New games are in development</p>
+              <div className="bg-dark-200/50 rounded-xl border border-dashed border-white/10 flex flex-col items-center justify-center p-6 sm:p-8 text-center min-h-[200px] sm:min-h-[280px]">
+                <span className="text-3xl sm:text-4xl mb-2 sm:mb-3">🚀</span>
+                <h3 className="font-display font-bold text-white text-sm sm:text-base mb-1">More Coming Soon</h3>
+                <p className="text-gray-500 text-xs sm:text-sm">New games in development</p>
               </div>
             </div>
           )}
         </div>
       </section>
+      
+      {/* Subtle bottom decoration */}
+      <div className="h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
     </div>
   );
 }
