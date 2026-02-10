@@ -95,8 +95,8 @@ export function HomePage() {
           </div>
           
           {/* === DESKTOP LAYOUT (md and up): Split layout Steam-style === */}
-          <div className="hidden md:block py-8 lg:py-12 px-6 lg:px-8">
-            <div className="max-w-6xl mx-auto">
+          <div className="hidden md:flex items-center min-h-[calc(100vh-80px)] py-12 lg:py-16 px-6 lg:px-8">
+            <div className="max-w-6xl mx-auto w-full">
               <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
                 {/* Left: Game artwork with controlled aspect ratio */}
                 <div className="col-span-7 lg:col-span-8">
@@ -131,7 +131,7 @@ export function HomePage() {
                   </span>
                   
                   {/* Title */}
-                  <h1 className="font-display text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+                  <h1 className="font-display text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-4 leading-tight tracking-tight">
                     {featuredGame.name}
                   </h1>
                   
@@ -154,10 +154,10 @@ export function HomePage() {
                     </div>
                   )}
                   
-                  {/* CTA Button - Full width on this column */}
+                  {/* CTA Button - Full width on this column, GREEN for max contrast */}
                   <button
                     onClick={() => handleGameClick(featuredGame)}
-                    className="w-full px-8 py-4 bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white font-bold text-lg rounded-xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-primary-500/30 hover:shadow-xl hover:shadow-primary-500/40 hover:scale-[1.02] active:scale-[0.98]"
+                    className="w-full px-8 py-4 bg-green-500 hover:bg-green-400 active:bg-green-600 text-white font-bold text-lg rounded-xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-green-500/40 hover:shadow-xl hover:shadow-green-500/50 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
