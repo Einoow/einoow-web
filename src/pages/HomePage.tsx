@@ -95,9 +95,8 @@ export function HomePage() {
           </div>
           
           {/* === DESKTOP LAYOUT (md and up): Split layout Steam-style === */}
-          <div className="hidden md:flex flex-col min-h-[calc(100vh-80px)]">
-            {/* Main content - centered */}
-            <div className="flex-1 flex items-center py-12 lg:py-16 px-6 lg:px-8">
+          {/* Height ~70vh so "More Games" section peeks into view */}
+          <div className="hidden md:block py-8 lg:py-12 px-6 lg:px-8">
               <div className="max-w-6xl mx-auto w-full">
                 <div className="grid grid-cols-12 gap-8 lg:gap-12 items-center">
                 {/* Left: Game artwork with controlled aspect ratio */}
@@ -168,15 +167,6 @@ export function HomePage() {
                   </button>
                 </div>
               </div>
-            </div>
-            </div>
-            
-            {/* Scroll indicator */}
-            <div className="pb-6 flex flex-col items-center gap-2 animate-bounce">
-              <span className="text-gray-500 text-sm">More games</span>
-              <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
             </div>
           </div>
         </section>
