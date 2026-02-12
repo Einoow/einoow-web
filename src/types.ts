@@ -4,7 +4,7 @@ export interface Game {
   description: string;
   url: string;
   image: string;
-  status: 'live' | 'coming-soon' | 'beta';
+  status: 'live' | 'coming-soon' | 'beta' | 'in-development';
   featured?: boolean;
   tags?: string[];
 }

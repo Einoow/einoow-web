@@ -6,16 +6,18 @@ interface GameCardProps {
 }
 
 export function GameCard({ game, onClick }: GameCardProps) {
-  const statusColors = {
+  const statusColors: Record<string, string> = {
     live: 'bg-green-500',
     beta: 'bg-yellow-500',
     'coming-soon': 'bg-gray-500',
+    'in-development': 'bg-blue-500',
   };
 
-  const statusLabels = {
+  const statusLabels: Record<string, string> = {
     live: 'Live',
     beta: 'Beta',
     'coming-soon': 'Coming Soon',
+    'in-development': 'In Development',
   };
 
   return (

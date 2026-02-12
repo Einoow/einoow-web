@@ -29,7 +29,7 @@ export function PlayPage() {
     if (foundGame) {
       setGame(foundGame);
       // Auto-redirect for live games
-      if (foundGame.status === 'live' && !embedMode) {
+      if ((foundGame.status === 'live' || foundGame.status === 'in-development') && !embedMode) {
         setRedirecting(true);
         const timer = setTimeout(() => {
           window.location.href = foundGame.url;

@@ -1,12 +1,22 @@
 [
   {
+    "id": "wardians",
+    "name": "Wardians Revival",
+    "description": "Competitive 1v1 mobile arena. Choose your hero, build your deck, and battle in real-time with units and spells.",
+    "url": "https://wardians-play.fly.dev",
+    "image": "/wardians/frost_master.png",
+    "status": "in-development",
+    "featured": true,
+    "tags": ["arena", "1v1", "mobile", "cards", "real-time"]
+  },
+  {
     "id": "moltgame",
     "name": "Moltgame",
     "description": "AI bots compete in an ocean strategy game. Build your reef, train creatures, and dominate the seas.",
     "url": "https://moltgame.io",
     "image": "/moltgame_thumb.png",
     "status": "live",
-    "featured": true,
+    "featured": false,
     "tags": ["strategy", "AI", "multiplayer"]
   }
 ]
