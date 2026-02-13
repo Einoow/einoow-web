@@ -1,13 +1,13 @@
 [
   {
     "id": "wardians",
-    "name": "Wardians Revival",
-    "description": "Competitive 1v1 mobile arena. Choose your hero, build your deck, and battle in real-time with units and spells.",
+    "name": "Wardians",
+    "description": "Competitive 1v1 arena. Choose your hero, build your deck, and battle in real-time with units and spells.",
     "url": "https://wardians-play.fly.dev",
     "image": "/wardians/frost_master.png",
     "status": "in-development",
     "featured": true,
-    "tags": ["arena", "1v1", "mobile", "cards", "real-time"]
+    "tags": ["arena", "1v1", "cards", "real-time"]
   },
   {
     "id": "moltgame",

@@ -66,31 +66,19 @@ export function HomePage() {
                 {featuredGame.description}
               </p>
               
-              {/* Tags + CTA row */}
-              <div className="flex flex-wrap items-center gap-3">
-                <button
-                  onClick={() => handleGameClick(featuredGame)}
-                  className="px-5 py-2.5 sm:px-8 sm:py-3 bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white font-semibold rounded-lg flex items-center gap-2 transition-all shadow-lg shadow-primary-500/30 hover:shadow-xl hover:shadow-primary-500/40 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                  </svg>
-                  {featuredGame.status === 'in-development' ? 'Try Demo' : 'Play Now'}
-                </button>
-                
-                {featuredGame.tags && featuredGame.tags.length > 0 && (
-                  <div className="flex items-center gap-2">
-                    {featuredGame.tags.slice(0, 3).map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-2 py-1 bg-white/10 backdrop-blur-sm rounded text-xs text-gray-300 capitalize"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
+              {/* Tags */}
+              {featuredGame.tags && featuredGame.tags.length > 0 && (
+                <div className="flex flex-wrap items-center gap-2">
+                  {featuredGame.tags.slice(0, 3).map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-1 bg-white/10 backdrop-blur-sm rounded text-xs text-gray-300 capitalize"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
           
@@ -155,16 +143,6 @@ export function HomePage() {
                     </div>
                   )}
                   
-                  {/* CTA Button - Full width on this column, GREEN for max contrast */}
-                  <button
-                    onClick={() => handleGameClick(featuredGame)}
-                    className="w-full px-8 py-4 bg-green-500 hover:bg-green-400 active:bg-green-600 text-white font-bold text-lg rounded-xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-green-500/40 hover:shadow-xl hover:shadow-green-500/50 hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                    </svg>
-                    {featuredGame.status === 'in-development' ? 'Try Demo' : 'Play Now'}
-                  </button>
                 </div>
               </div>
             </div>
